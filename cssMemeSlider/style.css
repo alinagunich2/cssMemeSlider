@@ -51,38 +51,39 @@ body{
   .pagination {
     display: flex;
     justify-content: end;
-    gap: 1rem;
-    transform: translateY(-2.56rem);
+    transform: translateY(-3.1rem);
   }
-  
-  .dot {
+  .dot{
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  .dot .dot-w {
     display: inline-block;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
     border: 0.1rem solid rgb(97, 77, 208);
     background-color: rgb(97, 77, 208);
-    cursor: pointer;
     transition: border 0.3s ease;
 
   }
-  .dot:not(input:checked):hover {
+  .dot:not(input:checked):hover .dot-w {
     border:  0.1rem solid white;
     background-color: white;
   }
   
-  input#slide1:checked ~ .pagination label[for="slide1"],
-  input#slide2:checked ~ .pagination label[for="slide2"],
-  input#slide3:checked ~ .pagination label[for="slide3"],
-  input#slide4:checked ~ .pagination label[for="slide4"] {
+  input#slide1:checked ~ .pagination label[for="slide1"] .dot-w,
+  input#slide2:checked ~ .pagination label[for="slide2"] .dot-w,
+  input#slide3:checked ~ .pagination label[for="slide3"] .dot-w,
+  input#slide4:checked ~ .pagination label[for="slide4"] .dot-w {
     background-color: transparent;
     transition: border 0.3s ease;
 
   }
-  input#slide1:checked ~ .pagination label[for="slide1"]:hover,
-  input#slide2:checked ~ .pagination label[for="slide2"]:hover,
-  input#slide3:checked ~ .pagination label[for="slide3"]:hover,
-  input#slide4:checked ~ .pagination label[for="slide4"]:hover {
+  input#slide1:checked ~ .pagination label[for="slide1"] .dot-w:hover,
+  input#slide2:checked ~ .pagination label[for="slide2"] .dot-w:hover,
+  input#slide3:checked ~ .pagination label[for="slide3"] .dot-w:hover,
+  input#slide4:checked ~ .pagination label[for="slide4"] .dot-w:hover {
     border: 0.1rem solid white;
   }
   
@@ -106,11 +107,11 @@ body{
   @media (max-width: 768px) {
     .pagination {
       gap: 0.8rem;
-      transform: translateY(-5.3rem);
+      transform: translateY(-6rem);
       justify-content: center;
     }
   
-    .dot {
+    .dot .dot-w {
       width: 0.8rem;
       height: 0.8rem;
     }
