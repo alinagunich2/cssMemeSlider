@@ -1,13 +1,14 @@
 body{
     background-color: #333;
     padding: 20px;
+
 }
 .slider {
 
     margin: 0 auto;
     overflow: hidden;
     max-width: 50rem;
-
+    height: 100vh;
   }
   
   .slides {
@@ -53,7 +54,7 @@ body{
     display: flex;
     justify-content: end;
     gap: 1rem;
-
+    /* margin-top: -2.6rem; */
   }
   
   .dot {
@@ -61,13 +62,14 @@ body{
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 1px solid rgb(97, 77, 208);
+    border: 0.1rem solid rgb(97, 77, 208);
     background-color: rgb(97, 77, 208);
     cursor: pointer;
     transition: border 0.3s ease;
+
   }
   .dot:not(input:checked):hover {
-    border:  1px solid white;
+    border:  0.1rem solid white;
     background-color: white;
   }
   
@@ -83,7 +85,7 @@ body{
   input#slide2:checked ~ .pagination label[for="slide2"]:hover,
   input#slide3:checked ~ .pagination label[for="slide3"]:hover,
   input#slide4:checked ~ .pagination label[for="slide4"]:hover {
-    border: 1px solid white;
+    border: 0.1rem solid white;
   }
   
   input{
@@ -106,12 +108,19 @@ body{
   @media (max-width: 768px) {
     .pagination {
       gap: 0.8rem;
-      bottom: 1.5vh;
+      justify-content: center;
+      /* margin-top: -5.4rem; */
     }
   
     .dot {
       width: 0.8rem;
       height: 0.8rem;
     }
+    .caption {
+        /* margin-top: 5rem; */
+      }
+      .slide {
+        align-items: center;
+      }
   }
   
