@@ -1,0 +1,124 @@
+body{
+    background-color: #333;
+    padding: 20px;
+
+}
+.slider {
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 50rem;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%; 
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+  }
+  
+  .slide img {
+    max-width: 50rem;
+    width: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+
+  .caption {
+    font-size: 1.2rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    margin-top: 1rem;
+    justify-content: flex-start;
+    text-align: start;
+  }
+  
+  input#slide1:checked ~ .slides .slide:nth-child(1) .caption,
+  input#slide2:checked ~ .slides .slide:nth-child(2) .caption,
+  input#slide3:checked ~ .slides .slide:nth-child(3) .caption,
+  input#slide4:checked ~ .slides .slide:nth-child(4) .caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: end;
+    transform: translateY(-3.1rem);
+  }
+  .dot{
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  .dot .dot-w {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 0.1rem solid rgb(97, 77, 208);
+    background-color: rgb(97, 77, 208);
+    transition: border 0.3s ease;
+
+  }
+  .dot:not(input:checked):hover .dot-w {
+    border:  0.1rem solid white;
+    background-color: white;
+  }
+  
+  input#slide1:checked ~ .pagination label[for="slide1"] .dot-w,
+  input#slide2:checked ~ .pagination label[for="slide2"] .dot-w,
+  input#slide3:checked ~ .pagination label[for="slide3"] .dot-w,
+  input#slide4:checked ~ .pagination label[for="slide4"] .dot-w {
+    background-color: transparent;
+    transition: border 0.3s ease;
+
+  }
+  input#slide1:checked ~ .pagination label[for="slide1"] .dot-w:hover,
+  input#slide2:checked ~ .pagination label[for="slide2"] .dot-w:hover,
+  input#slide3:checked ~ .pagination label[for="slide3"] .dot-w:hover,
+  input#slide4:checked ~ .pagination label[for="slide4"] .dot-w:hover {
+    border: 0.1rem solid white;
+  }
+  
+  input{
+    display: none;
+  }
+
+  input#slide1:checked ~ .slides {
+    transform: translateX(0%);
+  }
+  input#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+  }
+  input#slide3:checked ~ .slides {
+    transform: translateX(-200%);
+  }
+  input#slide4:checked ~ .slides {
+    transform: translateX(-300%);
+  }
+  
+  @media (max-width: 768px) {
+    .pagination {
+      gap: 0.8rem;
+      transform: translateY(-6rem);
+      justify-content: center;
+    }
+  
+    .dot .dot-w {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+    .caption {
+        margin-top: 5rem;
+      }
+      .slide {
+        align-items: center;
+      }
+  }
